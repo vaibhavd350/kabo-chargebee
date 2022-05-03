@@ -1,0 +1,42 @@
+<h1>Users' List</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Email</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Customer ID</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Comapny</th>
+      <th scope="col">User Subscriptions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each_with_index do |user, index|%>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= user.email %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.customer_id %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.company %></td>
+        <td>
+          <% user.user_subscriptions.each do |subscription| %>
+            <ul>
+              <li style="lin"><%= link_to subscription.subscription_id, user_user_subscriptions_path(user) %></li>
+              <li><%= link_to "Update Plan", edit_user_user_subscription_path(user, subscription), class: "btn btn-sm btn-success" %></li>
+            </ul>
+          <% end %> 
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<style type="text/css">
+  ul {
+  list-style-type: none;
+}
+</style>

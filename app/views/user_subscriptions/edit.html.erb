@@ -1,0 +1,16 @@
+<h1>Chargebee Subscription</h1>
+
+<p id="notice"><%= notice %></p>
+
+<%= form_for([@user, @user_subscription]) do |f| %>
+  <%= hidden_field :user_id, @user.id %>
+
+  <div class="field">
+    <%= f.label :current_term_start, "Date" %>
+    <%= f.date_select :current_term_start, { required: true, class: "form-control" } %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit 'Submit', class: "btn btn-primary" %>
+  </div>
+<% end %>

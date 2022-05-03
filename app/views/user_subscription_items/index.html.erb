@@ -1,0 +1,30 @@
+<h1><%= @subscription.subscription_id%>s' Item List</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Item Price Id</th>
+      <th scope="col">Item Type</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Unit Price</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Free Quantity</th>
+      <th scope="col">Object</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each_with_index do |item, index|%>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= item.item_price_id %></td>
+        <td><%= item.item_type %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.unit_price %></td>
+        <td><%= item.amount %></td>
+        <td><%= item.free_quantity %></td>
+        <td><%= item.object %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

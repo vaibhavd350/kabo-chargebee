@@ -1,0 +1,45 @@
+<h1><%= @user.first_name%>s' Susbcription List</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Subscription Id</th>
+      <th scope="col">Billing Period</th>
+      <th scope="col">Billing Period Unit</th>
+      <th scope="col">Status</th>
+      <th scope="col">Current Term Start</th>
+      <th scope="col">Current Term End</th>
+      <th scope="col">Next billing Time</th>
+      <th scope="col">Activation Time</th>
+      <th scope="col">Currency Code</th>
+      <th scope="col">Channel</th>
+      <th scope="col">Subscription Item List</th>
+      <th scope="col">Change Plan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_subscriptions.each_with_index do |subscription, index|%>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= subscription.subscription_id %></td>
+        <td><%= subscription.billing_period %></td>
+        <td><%= subscription.billing_period_unit %></td>
+        <td><%= subscription.status %></td>
+        <td><%= time_format(subscription.current_term_start)%></td>
+        <td><%= time_format(subscription.current_term_end) %></td>
+        <td><%= time_format(subscription.next_billing_at) %></td>
+        <td><%= time_format(subscription.activated_at) %></td>
+        <td><%= subscription.currency_code %></td>
+        <td><%= subscription.channel %></td>
+        <td>
+          <% subscription.user_subscription_items.each do |item| %>
+            <ul>
+              <li><%= link_to item.item_price_id, user_subscription_user_subscription_items_path(item) %></li>
+            </ul>
+          <% end %> 
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

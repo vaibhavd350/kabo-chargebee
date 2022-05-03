@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: 12345678
+  host: localhost
+  port: <%= ENV.fetch('DATABASE_PORT') { 5432 } %>
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+
+development:
+  <<: *default
+  database: kabo_chargebee_development
+
+test:
+  <<: *default
+  database: kabo_chargebee_test
+
+production:
+  <<: *default
+  database: kabo_chargebee
