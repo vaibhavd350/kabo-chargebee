@@ -1,1 +1,1 @@
-ChargeBee.configure(:site => "oaktreecloud-test", :api_key => "test_XitNieMC4lQOMAzDmiSEXOB0jNPcd5kB7")
+ChargeBee.configure(:site => Rails.application.credentials.chargebee_site, :api_key => Rails.application.credentials.chargebee_api_key)
