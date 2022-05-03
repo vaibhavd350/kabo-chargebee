@@ -48,3 +48,8 @@
 1. It will update the subscription plan on chargebee. 
 2. While updating the plan on chargebee, we will create an entry in our database. 
 2. We will create an entry in ***user_plan_changes*** table for a particular customer and easily track the record. 
+
+### Basic ERD diagram of Project to understand the table flow
+
+[erd.pdf](https://github.com/vaibhavd350/kabo-chargebee/files/8608819/erd.pdf)
+
